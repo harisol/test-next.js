@@ -12,7 +12,7 @@ type typeChildrenHome = {
   home?: boolean;
 };
 
-const Layout = ({ children, home }: typeChildrenHome) => {
+const Layout = ({ children, home }: typeChildrenHome): JSX.Element => {
   return (
     <div className={styles.container}>
       <Head>
@@ -43,7 +43,7 @@ const Layout = ({ children, home }: typeChildrenHome) => {
   );
 };
 
-const Header = ({ home }: { home?: boolean }) => {
+const Header = ({ home }: { home?: boolean }): JSX.Element => {
   return (
     <header className={styles.header}>
       {home ? (

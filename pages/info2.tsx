@@ -1,8 +1,7 @@
 import { NextPage } from 'next';
 import Layout from '../components/layout';
 import Head from 'next/head';
-import { Counter } from '../components/SampleHook';
-import Link from 'next/link';
+import { Theme } from '../components/SampleHook';
 
 const Info: NextPage = () => {
   return (
@@ -11,10 +10,7 @@ const Info: NextPage = () => {
         <title>Info Page</title>
       </Head>
       <h1>Hello</h1>
-      <Counter />
-      <Link href="/info2">
-        <a style={{ color: 'blueviolet' }}>Continue to More Hook Sample..</a>
-      </Link>
+      <Theme />
     </Layout>
   );
 };
