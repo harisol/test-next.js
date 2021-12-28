@@ -5,9 +5,28 @@ import utilStyles from '../styles/utils.module.css';
 
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+
+const anAsyncFunction = async () => {
+  return `I'm data`;
+};
 
 const Home: NextPage = () => {
   const router = useRouter();
+
+  /**
+   * await cannot be used inside react component
+   * nor useEffect. to use it, you must wrap it
+   * inside another function (abc)
+   */
+  useEffect(() => {
+    const abc = async () => {
+      const x = await anAsyncFunction();
+      console.log(x);
+    };
+    abc();
+  });
+
   return (
     <Layout home>
       <Head>
