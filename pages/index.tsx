@@ -43,6 +43,7 @@ const Home: NextPage = () => {
         <a href="/server-transition">Server Transition Link</a>
         <br />
 
+        {/* Client Transition without anchor */}
         <button
           style={{
             backgroundColor: 'olivedrab',
@@ -52,7 +53,7 @@ const Home: NextPage = () => {
           }}
           onClick={() => router.push('/info')}
         >
-          Client Transition without anchor
+          React Hook Sample
         </button>
       </section>
     </Layout>

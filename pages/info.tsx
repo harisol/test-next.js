@@ -1,10 +1,11 @@
 import { NextPage } from 'next';
 import Layout from '../components/layout';
 import Head from 'next/head';
-import { Counter } from '../components/SampleHook';
+import { Counter } from '../components/useStateAndEffect';
 import Link from 'next/link';
+import { UserInfo } from '../components/useReducer';
 
-const Info: NextPage = () => {
+const Info1: NextPage = () => {
   return (
     <Layout>
       <Head>
@@ -12,6 +13,8 @@ const Info: NextPage = () => {
       </Head>
       <h1>Hello</h1>
       <Counter />
+      <hr />
+      <UserInfo userName="Waluyo" />
       <Link href="/info2">
         <a style={{ color: 'blueviolet' }}>Continue to More Hook Sample..</a>
       </Link>
@@ -19,4 +22,4 @@ const Info: NextPage = () => {
   );
 };
 
-export default Info;
+export default Info1;

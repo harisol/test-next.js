@@ -50,3 +50,8 @@
 .lightText {
   color: #666;
 }
+
+.flexBox {
+  display: flex;
+  justify-content: space-between;
+}
