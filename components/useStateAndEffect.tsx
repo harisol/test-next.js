@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 
+const defaultExternalData = { hits: [] };
+
 // ------- Sample useState and useEffect -------
 export const Counter = (): JSX.Element => {
   const [personName, setPersonName] = useState('');
   const [count, setCount] = useState(0);
-  const [data, setData] = useState({ hits: [] });
+  const [externalData, setExternalData] = useState(defaultExternalData);
 
   const changeName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPersonName(e.target.value);
@@ -26,7 +28,7 @@ export const Counter = (): JSX.Element => {
   // Data fetching and manually changing the DOM in React components
   // are examples of side effects
   useEffect(() => {
-    console.log(`I'm called on first render or when a DOM is changed`);
+    console.log(`I'm called when a DOM is changed or at first render `);
   });
 
   // pass second argument with array of state or props (can be mixed)
@@ -35,12 +37,13 @@ export const Counter = (): JSX.Element => {
     // Update the document title using the browser API
     document.title = `clicked ${count} times`;
 
-    // this is useEffect cleanup.
-    // cleanup means, before running useEffect on next re-render
+    // this is useEffect cleanup
+    // cleanup means, before going to next page
+    // or running useEffect on next re-render (when component unmount),
     // run this function first.
     return () => {
       console.log(
-        `I'm called before button press. the click count times before you click is ${count}`
+        `I'm called before 'Click me' button re-render or unmounted. the last click count times is ${count}`
       );
     };
   }, [count]);
@@ -48,11 +51,13 @@ export const Counter = (): JSX.Element => {
   // pass second argument with empty array to make it
   // run only on first render
   useEffect(() => {
+    console.log('fetching external data..');
+
     const fetchData = () => {
       fetch('https://hn.algolia.com/api/v1/search?query=redux').then(
         async (res) => {
           const data = await res.json();
-          setData(data);
+          setExternalData(data);
           console.log('data fetched successfully');
         }
       );
@@ -60,7 +65,16 @@ export const Counter = (): JSX.Element => {
 
     const x = 3000;
     // wait x miliseconds before fetching data
-    setTimeout(fetchData, x);
+    const fetchingExternalData = setTimeout(fetchData, x);
+
+    return () => {
+      // clear timeout to avoid memory leak
+      // if inside setTimeout contains updating
+      // state that already unmounted
+      // (e.g. component is re-rendered or moving to other page)
+      clearTimeout(fetchingExternalData);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -85,9 +99,9 @@ export const Counter = (): JSX.Element => {
         because we pass empty array on useEffect second argument
       </p>
       <ul>
-        {!data.hits.length
+        {!externalData.hits.length
           ? '(Loading Data..)'
-          : data.hits.map((item: any) => (
+          : externalData.hits.map((item: any) => (
               <li key={item.objectID}>
                 <a href={item.url}>{item.title}</a>
               </li>

@@ -1,7 +1,7 @@
 export const initialStateRootReducer = {
   counter: 1,
   filter: 'off',
-  user: { name: 'Ben', age: '', nationality: '' },
+  user: { name: '', age: '', nationality: '' },
 };
 
 type thisStateType = typeof initialStateRootReducer;

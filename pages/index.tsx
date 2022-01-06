@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
 const anAsyncFunction = async () => {
-  return `I'm data`;
+  return `hello`;
 };
 
 const Home: NextPage = () => {

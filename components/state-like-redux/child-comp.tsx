@@ -50,6 +50,7 @@ export const CurrentUser = () => {
       type: 'SET_USER',
       payload: userFromDataSource,
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -84,21 +85,18 @@ export const CurrentUser = () => {
           placeholder="Name"
           style={{ display: 'block' }}
           ref={inputName}
-          defaultValue={user.name}
         />
         <input
           type="number"
           placeholder="Age"
           style={{ display: 'block' }}
           ref={inputAge}
-          defaultValue={user.age}
         />
         <input
           type="text"
           placeholder="Nationality"
           style={{ display: 'block' }}
           ref={inputNationality}
-          defaultValue={user.nationality}
         />
         <button
           onClick={() => {
