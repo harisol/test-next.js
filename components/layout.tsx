@@ -4,7 +4,7 @@ import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 
-const name = 'Haris';
+const name = 'Next Sample';
 export const siteTitle = 'Next.js Sample Website';
 
 type typeChildrenHome = {

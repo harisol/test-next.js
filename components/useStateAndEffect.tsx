@@ -84,11 +84,9 @@ export const Counter = (): JSX.Element => {
         See console to see the effect when you click button or type on input
         text
       </p>
-      <input
-        type="text"
-        onChange={changeName}
-        placeholder="Input your name"
-      ></input>
+      <hr />
+      <label>Input your name:</label>&nbsp;
+      <input type="text" onChange={changeName} placeholder="Name"></input>
       <h3>Your name is {personName}</h3>
       <hr />
       <button onClick={addCounter(1)}>Click me</button>

@@ -10,7 +10,6 @@ const Info2: NextPage = () => {
       <Head>
         <title>Info Page</title>
       </Head>
-      <h1>Hello</h1>
       <p style={{ color: '#d31777' }}>
         This is sample of using react hook useContext. <br />
         See console to see the effect when you click button

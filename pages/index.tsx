@@ -33,10 +33,12 @@ const Home: NextPage = () => {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>Hi there, I&apos;m human NodeJS Developer From Earth</p>
+        <p>Hi there, this is Next JS Sample Web</p>
         <Link href="/posts/list-post">List Post</Link>
         <br />
         <Link href="/fruits">List Fruit</Link>
+        <br />
+        <Link href="/temperature">Temperature Calculator</Link>
         <br />
 
         {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}

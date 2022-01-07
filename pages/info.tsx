@@ -11,7 +11,6 @@ const Info1: NextPage = () => {
       <Head>
         <title>Info Page</title>
       </Head>
-      <h1>Hello</h1>
       <Counter />
       <hr />
       <UserInfo userName="Waluyo" />
