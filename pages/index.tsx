@@ -38,6 +38,8 @@ const Home: NextPage = () => {
         <br />
         <Link href="/fruits">List Fruit</Link>
         <br />
+        <Link href="/handle-input">Handle Input</Link>
+        <br />
         <Link href="/temperature">Temperature Calculator</Link>
         <br />
 
